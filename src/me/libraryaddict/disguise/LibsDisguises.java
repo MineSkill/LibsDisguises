@@ -10,7 +10,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.lang.reflect.Field;
-import me.libraryaddict.disguise.commands.*;
 import me.libraryaddict.disguise.disguisetypes.Disguise;
 import me.libraryaddict.disguise.disguisetypes.DisguiseType;
 import me.libraryaddict.disguise.disguisetypes.FlagWatcher;
@@ -88,17 +87,6 @@ public class LibsDisguises extends JavaPlugin {
         PacketsManager.addPacketListeners();
         DisguiseListener listener = new DisguiseListener(this);
         Bukkit.getPluginManager().registerEvents(listener, this);
-        getCommand("disguise").setExecutor(new DisguiseCommand());
-        getCommand("undisguise").setExecutor(new UndisguiseCommand());
-        getCommand("disguiseplayer").setExecutor(new DisguisePlayerCommand());
-        getCommand("undisguiseplayer").setExecutor(new UndisguisePlayerCommand());
-        getCommand("undisguiseentity").setExecutor(new UndisguiseEntityCommand(listener));
-        getCommand("disguiseentity").setExecutor(new DisguiseEntityCommand(listener));
-        getCommand("disguiseradius").setExecutor(new DisguiseRadiusCommand(getConfig().getInt("DisguiseRadiusMax")));
-        getCommand("undisguiseradius").setExecutor(new UndisguiseRadiusCommand(getConfig().getInt("UndisguiseRadiusMax")));
-        getCommand("disguisehelp").setExecutor(new DisguiseHelpCommand());
-        getCommand("disguiseclone").setExecutor(new DisguiseCloneCommand(listener));
-        getCommand("libsdisguises").setExecutor(new LibsDisguisesCommand());
         registerValues();
     }
 
